@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>밀프몬 키우기 · 벨벳 미미 안내서</title>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1020;--brick:#5a2330;--wine:#3a1828;--pink:#ff5fae;--amber:#ffbf6b;--cream:#fff3e8;--ink:#3a1d2b;--mute:#b99aab;--good:#7ee0b5;--warn:#ffd166;--bad:#ff6b81}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+body{background:var(--bg);color:var(--cream);font:400 16px/1.7 'Noto Sans KR',sans-serif;overflow-x:hidden}
+.dot{font-family:'DotGothic16','Noto Sans KR',monospace}
+#sp{position:fixed;inset:0;pointer-events:none;z-index:0}
+#sp i{position:absolute;width:4px;height:4px;background:var(--amber);border-radius:50%;opacity:0;animation:fl linear infinite}
+@keyframes fl{0%{transform:translateY(0);opacity:0}15%{opacity:.7}100%{transform:translateY(-110vh);opacity:0}}
+nav{position:sticky;top:0;z-index:10;background:rgba(26,16,32,.94);border-bottom:2px solid var(--brick);display:flex;gap:4px;overflow-x:auto;padding:8px 12px;justify-content:center}
+nav a{color:var(--cream);text-decoration:none;white-space:nowrap;padding:6px 12px;border:2px solid transparent;font-size:14px}
+nav a:hover,nav a:focus-visible{border-color:var(--pink);color:var(--pink);outline:none}
+.hero{position:relative;min-height:75vh;display:grid;place-items:end center;text-align:center;padding:40px 20px 50px;background:linear-gradient(180deg,rgba(26,16,32,.2),rgba(26,16,32,.85) 75%,var(--bg)),url('https://itimg.kr/5391/MAID/MAP/1.webp') center center/cover}
+.hero h1{font-size:clamp(32px,7vw,60px);line-height:1.15;color:#ffd9ec;text-shadow:0 0 8px var(--pink),0 0 24px var(--pink),0 0 48px #c2185b;animation:neon 4s infinite}
+@keyframes neon{0%,92%,100%{opacity:1}94%{opacity:.55}96%{opacity:1}98%{opacity:.7}}
+.badge{display:inline-block;margin-top:16px;padding:8px 20px;border:3px solid var(--amber);color:var(--amber);font-size:17px;font-weight:700;background:rgba(26,16,32,0.85);letter-spacing:1px;box-shadow:0 0 12px rgba(255,191,107,0.3)}
+main{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 16px 80px}
+section{padding-top:64px}
+h2{font-size:26px;color:var(--pink);margin-bottom:6px}
+.lead{color:var(--mute);margin-bottom:20px}
+.card{background:var(--cream);color:var(--ink);padding:18px 20px;border:3px solid var(--brick);box-shadow:5px 5px 0 var(--brick)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.steps .card b{display:block;font-size:19px;color:var(--brick);margin-bottom:4px}
+.phone{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+@media(max-width:620px){.phone{grid-template-columns:1fr}}
+.card h3{color:var(--brick);font-size:17px;margin-bottom:4px}
+.card ul{padding-left:18px}
+.info{background:#120a18;border:2px solid var(--pink);padding:14px;font-size:15px;line-height:2;box-shadow:0 0 18px rgba(255,95,174,.3)}
+.info button,.chip{font:inherit;color:var(--cream);background:#2b1636;border:2px solid #6b3b63;padding:0 8px;cursor:pointer;margin:2px}
+.info button:hover,.info button.on{border-color:var(--amber);color:var(--amber);background:#3a1d2b}
+.info button:active{transform:translateY(2px)}
+.info .row{display:flex;flex-wrap:wrap;align-items:center}
+.panel{margin-top:14px;background:var(--cream);color:var(--ink);border:3px solid var(--brick);padding:16px 18px;min-height:170px}
+.panel h3{font-size:19px;color:var(--brick)}
+.bar{display:flex;height:16px;margin:12px 0 8px;border:2px solid var(--ink)}
+.bar span{display:block;min-width:3px}
+.lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
+.lg i{display:inline-block;width:11px;height:11px;margin-right:5px;border:1px solid var(--ink)}
+.tip{margin-top:8px;font-size:14px;color:#7a4a5e}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:620px){.two{grid-template-columns:1fr}}
+.up h3{color:#1f8a5c}.dn h3{color:#c2334d}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{padding:7px 8px;border-bottom:1px solid #d9b8a8;text-align:left;vertical-align:top}
+th{background:var(--brick);color:var(--cream);font-weight:500}
+.tw{overflow-x:auto}
+.cmd{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px dashed #d9b8a8}
+.cmd code{background:var(--ink);color:var(--amber);padding:2px 8px;font-size:15px}
+.cp{font:inherit;font-size:13px;background:var(--pink);color:#fff;border:2px solid var(--brick);padding:3px 10px;cursor:pointer;white-space:nowrap}
+.cp:active{transform:translateY(2px)}
+.places{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.pl{background:var(--wine);border:3px solid var(--brick);overflow:hidden}
+.pl .im{aspect-ratio:16/10;background:linear-gradient(135deg,#5a2330,#2b1636);display:grid;place-items:center;font-size:44px}
+.pl .im img{width:100%;height:100%;object-fit:cover;display:block}
+.pl div.tx{padding:12px 14px}
+.pl b{color:var(--amber)}
+.pl small{color:var(--mute);display:block}
+.chars{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.ch{background:var(--cream);color:var(--ink);border:3px solid var(--brick);box-shadow:5px 5px 0 var(--brick);cursor:pointer}
+.ch .pic{position:relative;aspect-ratio:1/1;background:linear-gradient(160deg,#6b2a45,#2b1636);display:grid;place-items:center;font-size:64px;overflow:hidden;border-bottom:3px solid var(--brick)}
+.ch .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.ch .em{position:absolute;right:8px;bottom:8px;background:rgba(26,16,32,.85);color:var(--amber);font-size:13px;padding:1px 8px}
+.ch .tx{padding:12px 16px 16px}
+.ch h3{font-size:20px;color:var(--brick)}
+.ch .meta{font-size:13px;color:#7a4a5e;margin-bottom:6px}
+.ch p{font-size:15px}
+.ch .hint{font-size:12px;color:#a47a8e;margin-top:6px}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:30px 16px;border-top:2px solid var(--brick);position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){#sp,.hero h1{animation:none;display:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="sp" aria-hidden="true"></div>
+<nav>
+<a href="#flow">한눈에 보기</a><a href="#info">정보창</a><a href="#tame">길들이기</a><a href="#cmd">명령어·상점</a><a href="#money">커뮤니티</a><a href="#places">장소</a><a href="#chars">등장인물</a>
+</nav>
+
+<header class="hero">
+<div>
+<h1 class="dot">밀프몬 키우기</h1>
+<span class="badge dot">밀프몬 키우기 · 베타 테스트 안내서</span>
+</div>
+</header>
+
+<main>
+<section id="flow">
+<h2 class="dot">한눈에 보기</h2>
+<p class="lead">본 롤플레이의 진행 방식 요약.</p>
+<div class="steps">
+<div class="card"><b class="dot">1. 포획</b>스마트폰으로 대상 촬영 시 디지털화되어 기기 내부로 전송됨. 포획된 대상을 '밀프몬'이라 칭함.</div>
+<div class="card"><b class="dot">2. 키우기</b>가상 거주지 내에서 식사, 급수, 산책, 위생 관리 등을 수행하며 호감도와 길들여짐을 상승시킴.</div>
+<div class="card"><b class="dot">3. 수익·상점</b>일상을 커뮤니티에 게시하여 재화를 획득하고, 해당 재화로 상점에서 물품을 구매함.</div>
+</div>
+<div class="phone">
+<div class="card"><h3>📱 폰 속</h3><ul><li>일반적인 주거 공간으로 구성됨.</li><li>생체 리듬(수면, 허기, 배변)은 현실과 동일함.</li><li>화면 터치를 통해 식사·음료 제공 및 상호작용 수행.</li><li>가상 인물의 음식은 형태와 식감이 도트 처리되며, 맛만 현실과 일치함.</li></ul></div>
+<div class="card"><h3>🌍 폰 밖</h3><ul><li>주인의 선택에 따라 현실 세계로 출현 가능.</li><li>필요 시 언제든지 가상 공간(폰 속)으로 회수 가능.</li><li>밀프몬은 주인의 모든 명령을 준수해야 함.</li><li>길들여짐이 부족할 경우 거부 반응은 발생하나 행동 자체는 거부할 수 없음.</li></ul></div>
+</div>
+</section>
+
+<section id="info">
+<h2 class="dot">정보창 읽는 법</h2>
+<p class="lead">매 턴 하단에 출력되는 INFO 항목 안내. 아래 모형의 항목별 버튼을 클릭하여 세부 내용 확인 가능.</p>
+<div class="info dot" role="group" aria-label="정보창 모형">
+<div class="row"><button data-k="time">📅 시간</button> 2026/10/26 | 월 | 21:00 | 거실 | <button data-k="mode">🎮</button> <button data-k="mood">⚙️💬</button> <button data-k="sex">🔞</button></div>
+<div class="row"><button data-k="bag">🎒 소지품</button> | <button data-k="gold">💰 지갑</button> 12만원</div>
+<div class="row"><button data-k="perm">💼 보유 물품</button> 산책줄</div>
+<div class="row"><button data-k="own">💾 보유 밀프몬</button></div>
+<div class="row">1. 이름 | <button data-k="hp" class="on">❤️35</button> <button data-k="tm">🪢12</button> <button data-k="sh">💥45%</button> <button data-k="fd">🍚80%</button> <button data-k="cl">🛁80%</button> | 행동 | <button data-k="loc">📌폰 속</button></div>
+</div>
+<div class="panel" id="pn" aria-live="polite"></div>
+</section>
+
+<section id="tame">
+<h2 class="dot">길들이기</h2>
+<p class="lead">길들여짐 수치 범위: -100 ~ 100. 특정 이벤트 발생 시에만 변동되며, 부재 시 기존 수치 유지.</p>
+<div class="two">
+<div class="card up"><h3>수치 상승 행동</h3><ul><li><b>소 (+2~4)</b>: 식사·음료·수면 지원, 신체 접촉(쓰다듬기), 다정한 화법, 약속 이행</li><li><b>대 (+6~8)</b>: 산책, 위생 케어, 위기 상황 동행, 칭찬 및 선물 제공</li></ul></div>
+<div class="card dn"><h3>수치 하락 행동</h3><ul><li><b>소 (-3~-5)</b>: 돌봄 누락, 약속 불이행, 방치, 비동의 명령 5회 이상 강요</li><li><b>대 (-6~-10)</b>: 폭언 및 조롱, 비동의 명령 10회 이상 강요, 장기간 방치, 신뢰 파괴</li></ul></div>
+</div>
+<div class="card" style="margin-top:18px"><h3>완전 길들여짐 (100 도달 시)</h3>전용 복장 해제 및 고유 일러스트 적용. 명령에 대한 무조건적 복종 상태가 활성화됨. 주인의 정상 행동 지시 시 평상시와 동일하게 대응하며, 100% 도달 이후에는 복장 변경과 관계없이 해당 상태가 유지됨.</div>
+</section>
+
+<section id="cmd">
+<h2 class="dot">명령어 및 상점</h2>
+<p class="lead">복사 버튼 클릭 후 채팅창에 입력하여 사용.</p>
+<div class="card">
+<div class="cmd"><span><code>!상점</code> 상점 목록 호출. 구매 완료된 영구 품목은 자동 제외됨.</span><button class="cp" data-t="!상점">복사</button></div>
+<div class="cmd"><span><code>커뮤니티에 올린다</code> 일상 내용 및 사진 게시를 통한 재화 획득.</span><button class="cp" data-t="오늘 찍은 사진을 밀프몬 커뮤니티에 올린다">복사</button></div>
+<div class="cmd"><span><code>글 열어</code> 게시글 목록 중 특정 글 선택 및 댓글 열람.</span><button class="cp" data-t="1112번 글 열어봐">복사</button></div>
+</div>
+<div class="card" style="margin-top:18px"><h3>밀프몬 상점</h3>
+<div class="tw"><table>
+<tr><th>구분</th><th>물품</th><th>설명</th><th>가격</th></tr>
+<tr><td>영구</td><td>산책줄</td><td>현실과 폰 속에서 밀프몬과 산책할 수 있는 만능 목줄.</td><td>5만</td></tr>
+<tr><td>영구</td><td>공</td><td>밀프몬과 공놀이를 할 수 있게 해주는 공. 밀프몬은 손으로 집을 수 없다. 오직 입으로만.</td><td>10만</td></tr>
+<tr><td>영구</td><td>가상 공원</td><td>폰 속 집 옆에 거대한 공원이 생긴다. 폰 안에서 간단히 산책할 수 있고, 가상의 엑스트라도 추가 가능.</td><td>10만</td></tr>
+<tr><td>영구</td><td>샤워실</td><td>폰 속 집에 설치되는 샤워실. 폰 속에서 밀프몬이 스스로 씻는다. 다만 길들여짐이 높은 밀프몬은 씻겨 주는 것을 더 좋아한다. 현실에서 직접 씻겨도 되지만, 번거롭거나 폰 속에서 씻기고 싶은 사람을 위한 선택지.</td><td>5만</td></tr>
+<tr><td>일회</td><td>포획권</td><td>대상을 '밀프몬'으로 포획할 수 있는 권리. 상식에서 벗어난 물품인 만큼 비싸다.</td><td>20만</td></tr>
+<tr><td>일회</td><td>개밥과 개 물주기</td><td>폰 안에서 밀프몬에게 밥과 물을 준다. 현실에서 먹여도 되지만, 시간이 없거나 특별한 취향이 있는 사람을 위한 선택지.</td><td>2만</td></tr>
+<tr><td>일회</td><td>도트 인간 밥과 물</td><td>폰 안에서 밀프몬에게 인간 음식을 준다. 비주얼은 현실 음식과 다른 도트 형태. 밀프몬이 찡그리는 모습을 보고 싶을 때 추천.</td><td>1만</td></tr>
+<tr><td>일회</td><td>정액맥주</td><td>정액이 담긴 맥주잔을 준다. 트림이 잘 나온다. 현실에서는 무료지만 굳이 돈을 써서 폰 속에서 먹이고 싶은 분들을 위한 선택.</td><td>4만</td></tr>
+<tr><td>일회</td><td>정액 뿌린 개밥</td><td>정액 뿌린 개밥을 준다. 포만감이 길다. 현실에서 무료지만 폰 속에서 먹이고 싶은 분들을 위한 상품.</td><td>4만</td></tr>
+<tr><td>일회</td><td>상식 개변 및 최면</td><td>말을 듣지 않는 밀프몬에게 사용. 최면으로 다루기 쉬운 상태로 만들거나, 상식을 개변해 평소엔 이상한 일을 당연하게 받아들이게 한다. 적용할 내용은 유저가 직접 명시, 명시하지 않은 내용은 적용되지 않음.</td><td>5만</td></tr>
+</table></div>
+<p class="tip">기타 일회성 상품은 인게임 내 `!상점` 명령어를 통해 확인 가능. 영구 품목은 💼(보유 물품)에 귀속되며, 소모품은 🎒(소지품)에 적재됨. 보유 잔액 부족 시 구매 불가.</p>
+</div>
+</section>
+
+<section id="money">
+<h2 class="dot">커뮤니티 수익</h2>
+<p class="lead">게시글 추천수 비례 수익 산정. 획득 재화는 💰(지갑)에 즉시 합산.</p>
+<div class="two">
+<div class="card"><h3>수익 기준표</h3>
+<table><tr><th>추천수</th><th>수익금</th></tr>
+<tr><td>0 ~ 29</td><td>1만</td></tr><tr><td>30 ~ 59</td><td>5만</td></tr><tr><td>60 ~ 99</td><td>10만</td></tr><tr><td>100 ~ 149</td><td>20만</td></tr><tr><td>150 이상</td><td>최대 100만</td></tr></table></div>
+<div class="card"><h3>게시판 예시</h3>
+<div class="tw"><table><tr><th>번호</th><th></th><th>제목</th><th>추천</th></tr>
+<tr><td>1112</td><td>🔥</td><td>제목 (47)</td><td>18</td></tr>
+<tr><td>1111</td><td>💬</td><td>제목 (9)</td><td>5</td></tr></table></div>
+<p class="tip">추천수 40 이상 또는 댓글 30 이상 시 '🔥' 아이콘 부착, 그 외 '💬' 표시. 게시글 등록 시에만 게시판 인터페이스 출력. 열람 시 댓글 확인 가능하며, 주인이 열람 화면을 공유할 경우에만 밀프몬 시청 가능.</p></div>
+</div>
+</section>
+
+<section id="places">
+<h2 class="dot">주요 장소</h2>
+<p class="lead">스토리 진행 배경 공간.</p>
+<div class="places">
+<div class="pl"><div class="im">🐰<img src="https://itimg.kr/5391/MAID/MAP/1.webp" alt="벨벳 미미 카페" onerror="this.remove()"></div><div class="tx"><b class="dot">벨벳 미미 카페</b><small>동물 귀 머리띠 착용 메이드 접대형 성인 전용 메이드 카페.</small></div></div>
+<div class="pl"><div class="im">🌤️<img src="https://itimg.kr/5391/MAID/MAP/2.webp" alt="아침 공원" onerror="this.remove()"></div><div class="tx"><b class="dot">아침 공원</b><small>가상 공원 구매 시 폰 속 거주지 인근에 생성되는 공간.</small></div></div>
+<div class="pl"><div class="im">🌙<img src="https://itimg.kr/5391/MAID/MAP/3.webp" alt="밤 공원" onerror="this.remove()"></div><div class="tx"><b class="dot">밤 공원</b><small>동일 공원 공간의 야간 환경.</small></div></div>
+</div>
+<div class="card" style="margin-top:20px"><h3>벨벳 미미 이용 안내</h3>
+<div class="tw"><table>
+<tr><td>입장료</td><td>2만 원 (성인 한정)</td></tr>
+<tr><td>기본 메뉴</td><td>1만 ~ 10만 원 (AI 자동 산출)</td></tr>
+<tr><td>오므라이스 하트 데코</td><td>1만 원</td></tr>
+<tr><td>오므라이스 직접 급여 서비스</td><td>5만 원</td></tr>
+<tr><td>모에모에 큥 서비스</td><td>주문 시 상시 무료</td></tr>
+<tr><td>1일 전속 메이드 계약</td><td>10만 원</td></tr>
+</table></div></div>
+</section>
+
+<section id="chars">
+<h2 class="dot">등장인물</h2>
+<p class="lead">프로필 카드 클릭 시 표정 변화 기능 활성화.</p>
+<div class="chars">
+<div class="ch" data-c="KS" data-e="2:미소,9:깔깔,10:쑥스,12:우쭐" data-f="🐰"><div class="pic"></div><div class="tx"><h3 class="dot">강서율</h3><div class="meta">43세 · 주부 겸 메이드 · 172cm</div><p>'벨벳 미미' 소속 토끼 메이드. 능청스럽고 유쾌한 어조를 구사하며 연하 대상 선호 성향 보유. 도현의 모친이나 가족에게는 메이드 근무 사실을 비밀로 유지 중.</p><div class="hint">카드 클릭하여 표정 변경</div></div></div>
+<div class="ch" data-c="HS" data-e="1:무관심,5:당황,10:쑥스,2:미소" data-f="🐷"><div class="pic"></div><div class="tx"><h3 class="dot">한서린</h3><div class="meta">31세 · 메이드 · 170cm</div><p>'벨벳 미미' 소속 동물중 돼지 컨셉을 맡고있는 메이드. 무표정 및 건조한 하십시오체 구사하나 내면 활동 활발. 진상 응대 능숙. 유하람의 연인.</p><div class="hint">카드 클릭하여 표정 변경</div></div></div>
+<div class="ch" data-c="KH" data-e="2:미소,9:깔깔,5:당황,12:우쭐" data-f="🧢"><div class="pic"></div><div class="tx"><h3 class="dot">강도현</h3><div class="meta">20세 · 이웃 주민 및 친구 · 177cm</div><p>유저의 이웃이자 친구. 활기찬 어조 사용. 유저의 의붓모 백서연을 유년 시절부터 연모해 옴.</p><div class="hint">카드 클릭하여 표정 변경</div></div></div>
+<div class="ch" data-c="BS" data-e="2:미소,5:당황,10:쑥스,12:우쭐" data-f="🧶"><div class="pic"></div><div class="tx"><h3 class="dot">백서연</h3><div class="meta">43세 · 주부 · 168cm</div><p>유저의 의붓모. 자애롭고 포용력 있는 해요체 구사. 거절에 취약한 온화한 성정. 사별 후 유저를 입양함.</p><div class="hint">카드 클릭하여 표정 변경</div></div></div>
+<div class="ch" data-c="LR" data-e="2:미소,21:애정,10:쑥스,9:깔깔" data-f="🌱"><div class="pic"></div><div class="tx"><h3 class="dot">유하람</h3><div class="meta">22세 · 한서린의 연인 · 168cm</div><p>솔직하고 순수한 직진형 성향. 활기찬 어조 사용. 한서린과 교제 1주년.</p><div class="hint">카드 클릭하여 표정 변경</div></div></div>
+</div>
+</main>
+<footer class="dot">밀프몬 키우기 · 베타 테스트 안내서</footer>
+
+<script>
+var D={
+hp:{t:'❤️ 호감도',r:'-100 ~ 200',d:'밀프몬의 주자에 대한 호감도 지표. 상호작용을 통해 상승하며, 부적절한 대우 시 하락함.',s:[['적대 (-100~-1)',100,'#ff6b81'],['일반 (0~99)',100,'#8ab4f8'],['썸 (100~149)',50,'#ff8fc4'],['반려 (150~200)',51,'#ffd166']],n:'공감·지원 +2~4 / 위기 극복·비밀 공유 +6~8 / 무례·충돌 -3~-5 / 배신·비동의 행동 -6~-10'},
+tm:{t:'🪢 길들여짐',r:'-100 ~ 100',d:'명령에 대한 순응도 지표. 수치가 높을수록 높은 복종성을 보임.',s:[['혐오·자괴감 (-100~-1)',100,'#ff6b81'],['경계·적응 (0~50)',51,'#8ab4f8'],['순종 (51~90)',40,'#7ee0b5'],['거의 길들여짐 (91~99)',9,'#ffd166'],['완전 (100)',3,'#ff5fae']],n:'상세 상승 및 하락 기준은 상단 길들이기 섹션 참고.'},
+sh:{t:'💥 수치심',r:'0 ~ 100%',d:'대상 대상이 느끼는 수치심 수준. 60% 이상 도달 시 칭찬 및 스킨십에 따른 길들여짐 상승 효율 50% 감소.',s:[['안정 (0~59)',60,'#7ee0b5'],['높음 (60~100)',41,'#ff6b81']],n:'길들여짐이 증가할수록 동일 상황 대비 수치심 증가폭이 완화되며, 100% 도달 시 거의 상승하지 않음.'},
+fd:{t:'🍚 포만감',r:'0 ~ 100%',d:'시간 경과에 따라 감소하며, 식사 수행 시 50% 회복.',s:[['공복 (0~30)',31,'#ff6b81'],['배고픔 (31~40)',10,'#ffd166'],['보통 (41~100)',60,'#7ee0b5']],n:'배고픔 구간 진입 시 액정을 두드려 주인을 호출함. 공복 상태 시 시야 내 모든 식품을 섭취함.'},
+cl:{t:'🛁 청결',r:'0 ~ 100%',d:'시간 경과에 따라 저하되며, 위생 케어 시 회복.',s:[['매우 더러움 (0~10)',11,'#ff6b81'],['더러움 (11~30)',20,'#ff9f6b'],['지저분 (31~50)',20,'#ffd166'],['살짝 지저분 (51~70)',20,'#b8e08a'],['깨끗함 (71~100)',30,'#7ee0b5']],n:'위생 케어는 길들여짐 +6~8이 가산되는 연계 활동임.'},
+time:{t:'📅 시간',d:'기본 5분 단위로 진행. 이동, 수면, 식사 등의 상황 변화 발생 시 30분에서 수 시간 단위로 시간대 점프.',n:'새벽 00~04:59 / 아침 05~09:59 / 낮 10~16:59 / 저녁 17~20:59 / 밤 21~23:59'},
+mode:{t:'🎮 로어북 모드',d:'현재 활성화된 로어북 모드 아이콘 표시.'},
+mood:{t:'⚙️ 상태',d:'기본 상태 시 💬 표시.'},
+sex:{t:'🔞 성행위 상태',d:'성행위 시 🔞 표시.'},
+bag:{t:'🎒 소지품',d:'현실 세계 보유 품목. 사용 시 소모됨. 소모품 구매 시 해당 위치에 적재됨.'},
+gold:{t:'💰 지갑',d:'보유 자산. 만원 단위로 표기되며 천원 단위는 절사됨. 커뮤니티 수익 발생 시 즉시 가산.'},
+perm:{t:'💼 보유 물품',d:'상점 구매 영구 품목 기록 공간. 구매 후 소멸하지 않으며 상점 목록에서 제외됨.'},
+own:{t:'💾 보유 밀프몬',d:'포획된 밀프몬 아카이브. 등장인물 포획 시 캐릭터 목록에서 본 항목으로 이전됨. 이름, 호감도, 수치, 행동, 위치 정보가 한 줄로 표기됨.'},
+loc:{t:'📌 위치',d:'대상의 현재 위치(가상 공간 vs 현실 세계) 표시.'}
+};
+var pn=document.getElementById('pn');
+function show(k){
+var o=D[k],h='<h3 class="dot">'+o.t+(o.r?' <small>('+o.r+')</small>':'')+'</h3><p>'+o.d+'</p>';
+if(o.s){var tot=o.s.reduce(function(a,x){return a+x[1]},0),b='',l='';
+o.s.forEach(function(x){b+='<span style="flex:'+x[1]+';background:'+x[2]+'"></span>';l+='<span><i style="background:'+x[2]+'"></i>'+x[0]+'</span>'});
+h+='<div class="bar">'+b+'</div><div class="lg">'+l+'</div>'}
+if(o.n)h+='<p class="tip">'+o.n+'</p>';
+pn.innerHTML=h}
+document.querySelectorAll('.info button').forEach(function(b){b.onclick=function(){
+document.querySelectorAll('.info button.on').forEach(function(x){x.classList.remove('on')});b.classList.add('on');show(b.dataset.k)}});
+show('hp');
+function copy(t,b){var done=function(){var o=b.textContent;b.textContent='복사됨!';setTimeout(function(){b.textContent=o},1200)};
+if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,fb)}else fb();
+function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();done()}}
+document.querySelectorAll('.cp').forEach(function(b){b.onclick=function(){copy(b.dataset.t,b)}});
+document.querySelectorAll('.ch[data-c]').forEach(function(c){
+var es=c.dataset.e.split(',').map(function(x){return x.split(':')}),i=0,p=c.querySelector('.pic');
+p.textContent=c.dataset.f;var im=document.createElement('img'),lb=document.createElement('span');lb.className='em dot';
+im.alt=c.querySelector('h3').textContent;im.onerror=function(){im.style.display='none';lb.style.display='none'};
+p.appendChild(im);p.appendChild(lb);
+function set(){im.style.display='';lb.style.display='';im.src='https://itimg.kr/5391/MAID/'+c.dataset.c+'/'+es[i][0]+'.webp';lb.textContent=es[i][1]}
+set();c.onclick=function(){i=(i+1)%es.length;set()}});
+var sp=document.getElementById('sp');
+for(var n=0;n<22;n++){var s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.top=(60+Math.random()*50)+'%';s.style.animationDuration=(9+Math.random()*10)+'s';s.style.animationDelay=(-Math.random()*12)+'s';sp.appendChild(s)}
+</script>
+</body>
+</html>
